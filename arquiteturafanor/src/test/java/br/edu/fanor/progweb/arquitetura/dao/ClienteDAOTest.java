@@ -8,6 +8,8 @@ import static org.junit.Assert.fail;
 
 
 
+import junit.framework.Assert;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,11 +55,24 @@ public class ClienteDAOTest {
 		clienteDAO.atualizar(cliente);
 	}
 	
-	@Test
+	@Ignore
 	public void testExcluir(){
 		Clientes cliente = clienteDAO.buscarPorId(1L);
 		
 		clienteDAO.excluir(cliente);
+	}
+	
+	@Test
+	public void testBuscarPorCPF(){
+		Clientes cliente = new Clientes();
+		cliente.setNome("Marcos");
+		cliente.setCpf("123");
+		
+		clienteDAO.salvar(cliente);
+		
+		Clientes clienteBusca = clienteDAO.buscarPorCPF("123");
+		
+		Assert.assertEquals("Marcos", clienteBusca.getNome());
 	}
 
 }

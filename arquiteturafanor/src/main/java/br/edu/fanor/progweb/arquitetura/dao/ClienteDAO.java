@@ -33,7 +33,7 @@ public class ClienteDAO {
 	}
 	
 	public Clientes buscarPorCPF(String cpf){
-		Query query = em.createQuery("select c from Clientes c where c.cpf = :cpf");
+		Query query = em.createQuery("select c.nome from Clientes c where c.cpf = :cpf");
 		query.setParameter("cpf", cpf);
 		return (Clientes) query.getSingleResult();
 	}
