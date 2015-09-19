@@ -17,8 +17,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.edu.fanor.progweb.arquitetura.entity.Papeis;
-import br.edu.fanor.progweb.arquitetura.entity.Permissoes;
+//import br.edu.fanor.progweb.arquitetura.entity.Papeis;
+//import br.edu.fanor.progweb.arquitetura.entity.Permissoes;
 import br.edu.fanor.progweb.arquitetura.entity.Usuarios;
 import br.edu.fanor.progweb.arquitetura.to.SegurancaTO;
 

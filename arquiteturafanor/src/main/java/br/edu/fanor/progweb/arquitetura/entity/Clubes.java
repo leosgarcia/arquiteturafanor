@@ -5,25 +5,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Clientes {
+@Table(name = "clubes")
+public class Clubes {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
-	
-	@Column(nullable=false)
-	private String nome;
-	
-	@Column(nullable=false, length=14, unique=true)
-	private String cpf;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 
-	public Long getId() {
+	@Column(nullable = false)
+	private String nome;
+
+	// Getters and Setters
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -35,12 +35,4 @@ public class Clientes {
 		this.nome = nome;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	
 }
