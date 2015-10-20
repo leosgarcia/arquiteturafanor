@@ -90,5 +90,4 @@ public class Usuarios {
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
-	
 }
