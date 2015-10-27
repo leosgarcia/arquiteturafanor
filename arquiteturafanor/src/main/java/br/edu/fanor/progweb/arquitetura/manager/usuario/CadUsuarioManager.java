@@ -1,7 +1,5 @@
 package br.edu.fanor.progweb.arquitetura.manager.usuario;
 
-import java.util.ArrayList;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -9,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.edu.fanor.progweb.arquitetura.bussines.UsuarioBO;
-//import br.edu.fanor.progweb.arquitetura.entity.Papeis;
 import br.edu.fanor.progweb.arquitetura.entity.Usuarios;
 import br.edu.fanor.progweb.arquitetura.utils.Encripta;
 import br.edu.fanor.progweb.arquitetura.utils.MessagesUtils;
@@ -36,10 +33,6 @@ public class CadUsuarioManager {
 		usuario.setNome(nome);
 		usuario.setEmail(email);
 		usuario.setSenha(Encripta.encripta(senha));
-		Papeis p = new Papeis();
-		p.setNome("Administrador");
-		usuario.setPapeis(new ArrayList<Papeis>());
-		usuario.getPapeis().add(p);
 		usuarioBO.salvar(usuario);
 		MessagesUtils.info("Usuário salvo com sucesso!");
 		listUsuario.lista();
