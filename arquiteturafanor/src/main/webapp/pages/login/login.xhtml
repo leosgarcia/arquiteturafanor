@@ -25,7 +25,7 @@
 
 				<p:commandButton value="Entrar" action="#{login.loggar}"
 					ajax="false" />
-				<p:commandLink value="Cadastrar-se" ajax="false" immediate="true" />
+				<p:commandLink action="#{cadUsuario.preparaSalvar}" value="Cadastrar-se" ajax="false" immediate="true" />
 				<p:outputLabel value=""/>
 			</h:panelGrid>
 		</h:form>

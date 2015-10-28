@@ -22,8 +22,6 @@ public class CadUsuarioManager {
 
 	@Autowired
 	private UsuarioBO usuarioBO;
-	@Autowired
-	private ListUsuarioManager listUsuario;
 	private String nome;
 	private String email;
 	private String senha;
@@ -34,16 +32,18 @@ public class CadUsuarioManager {
 		usuario.setEmail(email);
 		usuario.setSenha(Encripta.encripta(senha));
 		usuarioBO.salvar(usuario);
-		MessagesUtils.info("Usuário salvo com sucesso!");
-		listUsuario.lista();
-		
+		MessagesUtils.info("Usuário salvo com sucesso! Favor efetuar o login.");
 		return Navigation.SUCESSO;
 	}
 	
 	public String preparaSalvar(){
 		this.limpaDados();
 		
-		return Navigation.SUCESSO;
+		return Navigation.CADASTRO;
+	}
+	
+	public String voltar(){
+		return Navigation.VOLTAR;
 	}
 			
 	public void limpaDados(){

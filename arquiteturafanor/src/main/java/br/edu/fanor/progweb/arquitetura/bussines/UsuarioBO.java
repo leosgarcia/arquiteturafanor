@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.fanor.progweb.arquitetura.aspectj.Loggable;
 import br.edu.fanor.progweb.arquitetura.aspectj.PermitAll;
-import br.edu.fanor.progweb.arquitetura.aspectj.RolesAllowed;
 import br.edu.fanor.progweb.arquitetura.dao.UsuarioDAO;
 import br.edu.fanor.progweb.arquitetura.entity.Usuarios;
 import br.edu.fanor.progweb.arquitetura.exceptions.DAOException;
@@ -25,14 +24,14 @@ public class UsuarioBO {
 	@Autowired
 	private UsuarioDAO usuarioDAO;
 
-	@RolesAllowed(value = { "INCLUIR_USUARIO" })
+	@PermitAll
 	public void salvar(Usuarios usuario) {
 		usuario.setAtivo(false);
 		usuario.setPrimeiroAcesso(true);
 		usuarioDAO.salvar(usuario);
 	}
 
-	@RolesAllowed(value = { "ALTERAR_USUARIO" })
+	@PermitAll
 	public void atualizar(Usuarios usuario) {
 		usuarioDAO.atualizar(usuario);
 	}
@@ -49,8 +48,8 @@ public class UsuarioBO {
 		return usuarioDAO.buscarPorEmail(email);
 	}
 
-	@RolesAllowed(value = { "LISTAR_USUARIO" })
 	@Loggable(enable = false)
+	@PermitAll
 	public List<Usuarios> listaUsuarioPorNome(String nome) {
 		List<Usuarios> usuarios = usuarioDAO.listarPorNome(nome);
 		return usuarios;
@@ -67,7 +66,7 @@ public class UsuarioBO {
 		return null;
 	}
 
-	@RolesAllowed(value = { "EXCLUIR_USUARIO" })
+	@PermitAll
 	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public void excluir(Usuarios usuario) {
 		try {

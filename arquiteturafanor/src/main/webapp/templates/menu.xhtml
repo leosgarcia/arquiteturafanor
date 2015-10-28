@@ -3,12 +3,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <f:view>
 	<h:form>
 		<h:panelGroup id="sidebar" layout="block">
-			<h1>Menu</h1> Content for the sidebar goes here
+			<h1>Menu</h1> 
+			<p:panelMenu>
+				<p:submenu label="Apostas">
+					<p:menuitem value="Realizar Aposta" />
+				</p:submenu>
+			</p:panelMenu>
 		</h:panelGroup>
 	</h:form>
 </f:view>
