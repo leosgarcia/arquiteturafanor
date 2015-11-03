@@ -27,5 +27,4 @@ public class MessagesUtils {
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_FATAL, "Crash:", msg));
 	}
-
 }
