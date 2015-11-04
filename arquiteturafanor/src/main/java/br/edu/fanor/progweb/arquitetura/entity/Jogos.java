@@ -22,10 +22,10 @@ public class Jogos {
 	@Column(name = "data_jogo", nullable = false)
 	private Date dataJogo;
 
-	@Column(name = "placar_casa", nullable = false)
+	@Column(name = "placar_casa")
 	private Integer placarCasa;
 
-	@Column(name = "placar_visitante", nullable = false)
+	@Column(name = "placar_visitante")
 	private Integer placarVisitante;
 
 	@ManyToOne
