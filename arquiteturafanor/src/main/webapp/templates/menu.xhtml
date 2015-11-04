@@ -9,22 +9,18 @@
 <f:view>
 	<h:form>
 		<h:panelGroup id="sidebar" layout="block">
-			<h1>Menu</h1> 
+			<h1>Menu</h1>
 			<p:panelMenu>
-				<p:submenu label="Início">
-					<p:menuitem value="Tela Inicial" />
-				</p:submenu>
-				<p:submenu label="Apostas">
-					<p:menuitem value="Realizar Apostas" />
-				</p:submenu>
-				<p:submenu label="Tabelas">
+				<p:submenu label="Menu Principal">
+					<p:menuitem value="Tela Inicial"
+						outcome="/pages/usuario/telaInicial.xhtml" />
+					<p:menuitem value="Realizar Apostas"
+						outcome="/pages/usuario/telaRealizarApostas.xhtml" />
 					<p:menuitem value="Rodadas" />
-				</p:submenu>
-				<p:submenu label="Ranking">
-					<p:menuitem value="Ver Ranking" />
-				</p:submenu>
-				<p:submenu label="Regulamento">
-					<p:menuitem value="Ver Regulamento" />
+					<p:menuitem value="Ranking" />
+					<p:menuitem value="Regulamento" />
+					<p:menuitem value="Contato"
+						outcome="/pages/outrastelas/telaContato.xhtml" />
 				</p:submenu>
 			</p:panelMenu>
 		</h:panelGroup>

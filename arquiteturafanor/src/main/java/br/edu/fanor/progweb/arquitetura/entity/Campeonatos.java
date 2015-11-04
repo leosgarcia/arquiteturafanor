@@ -1,5 +1,4 @@
 package br.edu.fanor.progweb.arquitetura.entity;
-//Projeto WLD
 import java.util.Date;
 
 import javax.persistence.Column;
