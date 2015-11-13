@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.edu.fanor.progweb.arquitetura.bussines.ClubeBO;
-import br.edu.fanor.progweb.arquitetura.bussines.UsuarioBO;
 import br.edu.fanor.progweb.arquitetura.entity.Clubes;
 import br.edu.fanor.progweb.arquitetura.utils.MessagesUtils;
 import br.edu.fanor.progweb.arquitetura.utils.Navigation;
@@ -15,7 +14,6 @@ import br.edu.fanor.progweb.arquitetura.utils.Navigation;
 @RequestScoped
 @ManagedBean(name = "cadClube")
 @Component(value = "cadClube")
-
 public class CadClubeManager {
 
 	@Autowired
@@ -32,7 +30,6 @@ public class CadClubeManager {
 
 	public String preparaSalvar() {
 		this.limpaDados();
-
 		return Navigation.CADASTRO;
 	}
 
