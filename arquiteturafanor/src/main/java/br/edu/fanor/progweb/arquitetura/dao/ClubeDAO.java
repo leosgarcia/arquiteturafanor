@@ -15,17 +15,19 @@ public class ClubeDAO {
 
 	@PersistenceContext
 	private EntityManager entityManager;
+	
+	
 
 	public void salvar(Clubes clube) {
 		entityManager.persist(clube);
 	}
 
-	public void atualiza(Clubes clube) {
+	public void atualizar(Clubes clube) {
 		entityManager.merge(clube);
 	}
 
 	public void excluir(Clubes clube) {
 		entityManager.remove(clube);
 	}
-
+	
 }
