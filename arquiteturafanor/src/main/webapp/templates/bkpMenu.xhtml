@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<f:view>
+	<h:form>
+		<h:panelGroup id="sidebar" layout="block">
+			<h1>Menu</h1>
+			<p:panelMenu>
+				<p:submenu label="Menu Principal">
+				
+					<p:menuitem value="Tela Inicial"
+						outcome="/pages/usuario/telaInicial.xhtml" />
+					<p:menuitem value="Realizar Apostas"
+						outcome="/pages/usuario/telaRealizarApostas.xhtml" />
+					<p:menuitem value="Rodadas"
+						outcome="/pages/usuario/telaRodadas.xhtml" />
+					<p:menuitem value="Ranking" />
+					<p:menuitem value="Regulamento"
+						outcome="/pages/usuario/telaRegulamento.xhtml" />
+					<p:menuitem value="Contato"
+						outcome="/pages/outrastelas/telaContato.xhtml" />
+				</p:submenu>
+			</p:panelMenu>
+		</h:panelGroup>
+	</h:form>
+</f:view>
+</html>

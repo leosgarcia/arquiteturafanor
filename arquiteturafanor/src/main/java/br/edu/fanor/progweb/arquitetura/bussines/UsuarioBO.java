@@ -13,10 +13,6 @@ import br.edu.fanor.progweb.arquitetura.dao.UsuarioDAO;
 import br.edu.fanor.progweb.arquitetura.entity.Usuarios;
 import br.edu.fanor.progweb.arquitetura.exceptions.DAOException;
 
-/**
- * @author patrick.cunha
- * 
- */
 @Loggable
 @Service
 public class UsuarioBO {

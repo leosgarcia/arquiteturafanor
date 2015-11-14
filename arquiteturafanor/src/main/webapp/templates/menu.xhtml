@@ -1,4 +1,3 @@
-<!-- Teste de comentário -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -10,23 +9,31 @@
 <f:view>
 	<h:form>
 		<h:panelGroup id="sidebar" layout="block">
-			<h1>Menu</h1>
-			<p:panelMenu>
-				<p:submenu label="Menu Principal">
-				
-					<p:menuitem value="Tela Inicial"
-						outcome="/pages/usuario/telaInicial.xhtml" />
-					<p:menuitem value="Realizar Apostas"
-						outcome="/pages/usuario/telaRealizarApostas.xhtml" />
-					<p:menuitem value="Rodadas"
-						outcome="/pages/usuario/telaRodadas.xhtml" />
-					<p:menuitem value="Ranking" />
-					<p:menuitem value="Regulamento"
-						outcome="/pages/usuario/telaRegulamento.xhtml" />
-					<p:menuitem value="Contato"
-						outcome="/pages/outrastelas/telaContato.xhtml" />
-				</p:submenu>
-			</p:panelMenu>
+			<p:tabMenu activeIndex="#{param.i}">
+				<p:menuitem value="Home" outcome="/pages/usuario/telaInicial.xhtml"
+					icon="ui-icon-star">
+					<f:param name="i" value="0" />
+				</p:menuitem>
+				<p:menuitem value="Realizar Apostas" outcome="/pages/usuario/palpites.xhtml"
+					icon="ui-icon-search">
+					<f:param name="i" value="1" />
+				</p:menuitem>
+				<p:menuitem value="Rodadas" outcome="/pages/usuario/telaRodadas.xhtml"
+					icon="ui-icon-document">
+					<f:param name="i" value="2" />
+				</p:menuitem>
+				<p:menuitem value="Ranking" icon="ui-icon-document">
+					<f:param name="i" value="3" />
+				</p:menuitem>
+				<p:menuitem value="Regulamento" outcome="/pages/usuario/telaRegulamento.xhtml"
+					icon="ui-icon-document">
+					<f:param name="i" value="4" />
+				</p:menuitem>
+				<p:menuitem value="Contato" outcome="/pages/outrastelas/telaContato.xhtml"
+					icon="ui-icon-person">
+					<f:param name="i" value="4" />
+				</p:menuitem>
+			</p:tabMenu>
 		</h:panelGroup>
 	</h:form>
 </f:view>
