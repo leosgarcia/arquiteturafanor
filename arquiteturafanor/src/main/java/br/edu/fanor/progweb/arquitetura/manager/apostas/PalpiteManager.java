@@ -12,12 +12,12 @@ import br.edu.fanor.progweb.arquitetura.utils.MessagesUtils;
 import br.edu.fanor.progweb.arquitetura.utils.Navigation;
 
 @RequestScoped
-@ManagedBean(name = "realizarApostas")
-@Component(value = "realizarApostas")
-public class PalpitesManager {
+@ManagedBean(name = "palpites")
+@Component(value = "palpites")
+public class PalpiteManager {
 
 	@Autowired
-	private PalpiteBO palpitesBO;
+	private PalpiteBO palpiteBO;
 	private Integer placarCasa;
 	private Integer placarVisitante;
 	private String equipeCasa;
@@ -26,7 +26,9 @@ public class PalpitesManager {
 	public String salvar() {
 		Palpites palpites = new Palpites();
 		palpites.setPlacarVisitante(placarVisitante);
-		palpitesBO.salvar(palpites);
+		palpites.setPlacarCasa(placarCasa);
+		
+		palpiteBO.salvar(palpites);
 		MessagesUtils.info("palpites salvo com sucesso!");
 		return Navigation.SUCESSO;
 	}
@@ -47,12 +49,12 @@ public class PalpitesManager {
 		this.equipeVisitante = "";
 	}
 
-	public PalpiteBO getPalpitesBO() {
-		return palpitesBO;
+	public PalpiteBO getpalpiteBO() {
+		return palpiteBO;
 	}
 
-	public void setPalpitesBO(PalpiteBO palpitesBO) {
-		this.palpitesBO = palpitesBO;
+	public void setpalpiteBO(PalpiteBO palpiteBO) {
+		this.palpiteBO = palpiteBO;
 	}
 
 	public int getPlacarCasa() {
