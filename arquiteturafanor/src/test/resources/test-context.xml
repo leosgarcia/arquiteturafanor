@@ -13,6 +13,6 @@
 	<import resource="test-db.xml" />
 
 	<tx:annotation-driven />
-	<context:component-scan base-package="br.edu.fanor.progweb.arquitetura" />	
+	<context:component-scan base-package="" />	
 
 </beans>

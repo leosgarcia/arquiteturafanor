@@ -47,12 +47,12 @@
 					headerText="Atualizar">
 					<p:commandButton icon="ui-icon-pencil" ajax="false"
 						title="Atualizar"
-						action="#{atualizaUsuario.preparaAtualizar(usuario)}" />
+						action="#{atualizaUsuario.preparaAtualizar}" />
 				</p:column>
 				<p:column id="clExcluir" style="width: 43px; text-align: center" resizable="false"
 					headerText="Excluir">
 					<p:commandButton id="btExcluir" icon="ui-icon-closethick"
-						title="Excluir" actionListener="#{listUsuario.excluir(usuario)}"
+						title="Excluir" actionListener="#{listUsuario.usuarios}"
 						update="tbUsuarios"
 						onclick="if (!confirm('Confirma exclusão do usuário?')) return false" />
 				</p:column>

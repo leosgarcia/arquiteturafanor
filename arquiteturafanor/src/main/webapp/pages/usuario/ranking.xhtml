@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+	<ui:define name="content">
+
+		<h:form id="formPalpites">
+
+
+			<p:growl id="msgs" showDetail="true" />
+
+			<h3 align="center">Ranking</h3>
+			<p:dataTable id="cars1" var="car" value="" rows="10"
+				resizableColumns="true" style="margin-bottom:20px">
+
+				<f:facet name="header">Ranking</f:facet>
+
+				<p:column headerText="Posição">
+					<h:outputText value="" />
+				</p:column>
+				<p:column headerText="Usuário">
+					<h:outputText value="" />
+				</p:column>
+				<p:column headerText="Pontuação">
+					<h:outputText value="" />
+				</p:column>
+			</p:dataTable>
+
+		</h:form>
+
+	</ui:define>
+
+
+</ui:composition>
