@@ -45,23 +45,23 @@
 				<f:facet name="header">Numero da Rodada</f:facet>
 
 				<p:column headerText="Equipe Casa">
-					#{p.jogo.clubesCasaId.nome}
+					<h4 align="center">#{p.jogo.clubesCasaId.nome}</h4>
 				</p:column>
 				<p:column headerText="Placar Casa">
-					#{p.palpite.placarCasa}
+					<h4 align="center">#{p.palpite.placarCasa}</h4>
 				</p:column>
 				<p:column headerText="Versus">
-					X
+					<h4 align="center">x</h4>
 				</p:column>
 				<p:column headerText="Placar Visitante">
-					#{p.palpite.placarVisitante}
+					<h4 align="center">#{p.palpite.placarVisitante}</h4>
 				</p:column>
 				<p:column headerText="Equipe Visitante">
-					#{p.jogo.clubesVisitanteId.nome}
+					<h4 align="center">#{p.jogo.clubesVisitanteId.nome}</h4>
 				</p:column>
 
-				<p:column headerText="">
-					<p:commandLink value="excluir" action="#{palpites.remove(p)}"
+				<p:column headerText="Excluir Apostas">
+					<p:commandLink value="Excluir Esta Aposta" action="#{palpites.remove(p)}"
 						update="@form" />
 				</p:column>
 			</p:dataTable>
