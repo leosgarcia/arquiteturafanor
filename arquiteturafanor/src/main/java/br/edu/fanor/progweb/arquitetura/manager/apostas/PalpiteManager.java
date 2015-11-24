@@ -1,94 +1,105 @@
 package br.edu.fanor.progweb.arquitetura.manager.apostas;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
 
 import br.edu.fanor.progweb.arquitetura.bussines.PalpiteBO;
+import br.edu.fanor.progweb.arquitetura.dao.JogoDAO;
+import br.edu.fanor.progweb.arquitetura.entity.Jogos;
+import br.edu.fanor.progweb.arquitetura.entity.PalpiteDoUsuario;
 import br.edu.fanor.progweb.arquitetura.entity.Palpites;
+import br.edu.fanor.progweb.arquitetura.to.SegurancaTO;
 import br.edu.fanor.progweb.arquitetura.utils.MessagesUtils;
-import br.edu.fanor.progweb.arquitetura.utils.Navigation;
 
-@RequestScoped
+@ViewScoped
 @ManagedBean(name = "palpites")
-@Component(value = "palpites")
 public class PalpiteManager {
 
-	@Autowired
+	@ManagedProperty("#{palpiteBO}")
 	private PalpiteBO palpiteBO;
-	private Integer placarCasa;
-	private Integer placarVisitante;
-	private String equipeCasa;
-	private String equipeVisitante;
-
-	public String salvar() {
-		Palpites palpites = new Palpites();
-		palpites.setPlacarVisitante(placarVisitante);
-		palpites.setPlacarCasa(placarCasa);
+	
+	@ManagedProperty("#{jogoDAO}")
+	private JogoDAO jogoDao;
+	
+	@ManagedProperty("#{segurancaTO}")
+	private SegurancaTO segurancaTO;
+	
+	private PalpiteDoUsuario palpite;
+	
+	private List<Jogos> jogos = new ArrayList<>();
+	
+	private List<PalpiteDoUsuario> palpitesDoUsuario = new ArrayList<>();
+	
+	@PostConstruct
+	public void init() {
+		this.reseta();
+		this.jogos = jogoDao.listaTodos();
+	}
+	
+	public void adicionaNovoPalpite() {
 		
-		palpiteBO.salvar(palpites);
-		MessagesUtils.info("palpites salvo com sucesso!");
-		return Navigation.SUCESSO;
+		palpite.setJogo(recarrega(palpite.getJogo()));
+		palpite.setUsuario(segurancaTO.getUsuario());
+		
+		this.palpitesDoUsuario.add(palpite);
+		this.reseta(); // limpa formulario
+	}
+	
+	public String gravarPalpites() {
+		palpiteBO.salvar(palpitesDoUsuario);
+		this.reseta(); // limpa formulario
+		MessagesUtils.info("Apostas feitas com sucesso!");
+		return "/pages/usuario/palpites.xhtml?faces-redirect=true";
+	}
+	
+	public void remove(PalpiteDoUsuario palpiteSelecionado) {
+//		palpiteBO.remove(palpiteSelecionado);
+		// remover da lista
+		this.palpitesDoUsuario.remove(palpiteSelecionado);
+	}
+	
+	private Jogos recarrega(Jogos jogo) {
+		return jogoDao.buscaPorId(jogo.getId());
+	}
+	
+	private void reseta() {
+		this.palpite = new PalpiteDoUsuario();
+		this.palpite.setJogo(new Jogos());
+		this.palpite.setPalpite(new Palpites());
 	}
 
-	public String preparaSalvar() {
-		this.limpaDados();
-		return Navigation.CADASTRO;
-	}
 
-	public String voltar() {
-		return Navigation.VOLTAR;
+	public PalpiteDoUsuario getPalpite() {
+		return palpite;
 	}
-
-	public void limpaDados() {
-		this.placarVisitante = 0;
-		this.placarCasa = 0;
-		this.equipeCasa = "";
-		this.equipeVisitante = "";
+	public void setPalpite(PalpiteDoUsuario palpite) {
+		this.palpite = palpite;
 	}
-
-	public PalpiteBO getpalpiteBO() {
-		return palpiteBO;
+	public List<Jogos> getJogos() {
+		return jogos;
 	}
-
-	public void setpalpiteBO(PalpiteBO palpiteBO) {
+	public void setJogos(List<Jogos> jogos) {
+		this.jogos = jogos;
+	}
+	public List<PalpiteDoUsuario> getPalpitesDoUsuario() {
+		return palpitesDoUsuario;
+	}
+	public void setPalpitesDoUsuario(List<PalpiteDoUsuario> palpitesDoUsuario) {
+		this.palpitesDoUsuario = palpitesDoUsuario;
+	}
+	public void setPalpiteBO(PalpiteBO palpiteBO) {
 		this.palpiteBO = palpiteBO;
 	}
-
-	public int getPlacarCasa() {
-		return placarCasa;
+	public void setJogoDao(JogoDAO jogoDao) {
+		this.jogoDao = jogoDao;
 	}
-
-	public void setPlacarCasa(Integer placarCasa) {
-		this.placarCasa = placarCasa;
+	public void setSegurancaTO(SegurancaTO segurancaTO) {
+		this.segurancaTO = segurancaTO;
 	}
-
-	public int getPlacarVisitante() {
-		return placarVisitante;
-	}
-
-	public void setPlacarVisitante(Integer placarVisitante) {
-		this.placarVisitante = placarVisitante;
-	}
-
-	public String getEquipeCasa() {
-		return equipeCasa;
-	}
-
-	public void setEquipeCasa(String equipeCasa) {
-		this.equipeCasa = equipeCasa;
-	}
-
-	public String getEquipeVisitante() {
-		return equipeVisitante;
-	}
-
-	public void setEquipeVisitante(String equipeVisitante) {
-		this.equipeVisitante = equipeVisitante;
-	}
-
 	
-
 }

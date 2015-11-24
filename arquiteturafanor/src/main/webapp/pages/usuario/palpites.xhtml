@@ -8,35 +8,63 @@
 
 		<h:form id="formPalpites">
 
-
 			<p:growl id="msgs" showDetail="true" />
+			
+			<p:panelGrid columns="2">
+			
+				<p:outputLabel value="Jogo"/>
+				<p:selectOneMenu label="Jogo" value="#{palpites.palpite.jogo.id}">
+					<f:selectItem itemValue="#{null}" itemLabel="---"/>
+					<f:selectItems value="#{palpites.jogos}" var="j" 
+						itemLabel="#{j.clubesCasaId.nome} VS #{j.clubesVisitanteId.nome}"
+						itemValue="#{j.id}" />
+				</p:selectOneMenu>
+				
+				<p:outputLabel value="Placar Casa"/>
+				<p:inputText value="#{palpites.palpite.palpite.placarCasa}" />
+				
+				<p:outputLabel value="Placar Visitante"/>
+				<p:inputText value="#{palpites.palpite.palpite.placarVisitante}" />
+			
+				<p:commandButton value="Fazer aposta" 
+					action="#{palpites.adicionaNovoPalpite}" update="@form" process="@form"/>
+					
+				<p:commandButton value="Gravar todas as apostas" 
+					action="#{palpites.gravarPalpites}" update="@form" 
+					rendered="#{not empty palpites.palpitesDoUsuario}" />
+			
+			</p:panelGrid>
 
 			<h3 align="center">Realizar Apostas</h3>
-			<p:dataTable id="cars1" var="car" value="" rows="10"
+			<p:dataTable id="cars1" var="p" 
+				value="#{palpites.palpitesDoUsuario}" rows="10"
 				resizableColumns="true" style="margin-bottom:20px">
 
 				<f:facet name="header">Numero da Rodada</f:facet>
 
 				<p:column headerText="Equipe Casa">
-					<h:outputText value="" />
+					#{p.jogo.clubesCasaId.nome}
 				</p:column>
 				<p:column headerText="Placar Casa">
-					<h:outputText value="" />
+					#{p.palpite.placarCasa}
 				</p:column>
 				<p:column headerText="Versus">
-					<h:outputText value="" />
+					X
 				</p:column>
 				<p:column headerText="Placar Visitante">
-					<h:outputText value="" />
+					#{p.palpite.placarVisitante}
 				</p:column>
 				<p:column headerText="Equipe Visitante">
-					<h:outputText value="" />
+					#{p.jogo.clubesVisitanteId.nome}
+				</p:column>
+				
+				<p:column headerText="">
+					<p:commandLink value="excluir" action="#{palpites.remove(p)}" update="@form" />
 				</p:column>
 			</p:dataTable>
 
 		</h:form>
 
 	</ui:define>
-
 
 </ui:composition>
