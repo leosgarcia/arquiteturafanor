@@ -16,6 +16,10 @@ import br.edu.fanor.progweb.arquitetura.entity.Palpites;
 import br.edu.fanor.progweb.arquitetura.to.SegurancaTO;
 import br.edu.fanor.progweb.arquitetura.utils.MessagesUtils;
 
+/* didi
+ * 24/11/2015
+ */
+
 @ViewScoped
 @ManagedBean(name = "palpites")
 public class PalpiteManager {

@@ -8,6 +8,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/* didi
+ * 24/11/2015
+ */
+
+
 @Entity
 @Table(name = "usuarios_jogos_palpites")
 public class PalpiteDoUsuario {

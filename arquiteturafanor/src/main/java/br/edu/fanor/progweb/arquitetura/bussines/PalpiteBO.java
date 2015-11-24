@@ -15,6 +15,11 @@ import br.edu.fanor.progweb.arquitetura.dao.PalpiteDAO;
 import br.edu.fanor.progweb.arquitetura.entity.PalpiteDoUsuario;
 import br.edu.fanor.progweb.arquitetura.entity.Palpites;
 
+/* didi
+ * 24/11/2015
+ */
+
+
 @Loggable
 @Service
 public class PalpiteBO {

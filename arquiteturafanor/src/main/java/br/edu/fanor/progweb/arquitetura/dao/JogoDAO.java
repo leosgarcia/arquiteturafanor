@@ -12,6 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.fanor.progweb.arquitetura.entity.Jogos;
 
+/* didi
+ * 24/11/2015
+ */
+
 @Repository
 @Transactional(propagation = Propagation.REQUIRED)
 public class JogoDAO {
