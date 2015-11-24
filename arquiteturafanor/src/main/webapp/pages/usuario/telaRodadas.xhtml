@@ -10,13 +10,33 @@
 
 			<p:growl id="msgs" showDetail="true" />
 
+			<p:panelGrid styleClass="panelgrid" columns="2">
+
+				<p:outputLabel value="Selecionar Número da Rodada" />
+				<p:selectOneMenu label="Rodada" value="#{palpites.palpite.jogo.id}">
+					<f:selectItem itemValue="#{null}" itemLabel="" />
+					<f:selectItems value="#{palpites.jogos}" var="j"
+						itemLabel="#{j.clubesCasaId.nome} VS #{j.clubesVisitanteId.nome}"
+						itemValue="#{j.id}" />
+				</p:selectOneMenu>
+
+			</p:panelGrid>
 
 
-			<h3 align="center">Rodadas</h3>
+			<p:panelGrid styleClass="panelgrid" columns="2">
+
+				<p:commandButton value="Buscar Jogos da Rodada"
+					action="#{palpites.adicionaNovoPalpite}" update="@form"
+					process="@form" />
+
+			</p:panelGrid>
+
+			<p:separator></p:separator>
+
 			<p:dataTable id="cars1" var="p" value="#{palpites.palpitesDoUsuario}"
 				rows="10" resizableColumns="true" style="margin-bottom:20px">
 
-				<f:facet name="header">Rodada Número: 38</f:facet>
+				<f:facet name="header">Rodada Número: </f:facet>
 
 				<p:column headerText="Equipe Casa">
 					<h4 align="center">#{p.jogo.clubesCasaId.nome}</h4>

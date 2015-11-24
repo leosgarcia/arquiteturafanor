@@ -14,9 +14,9 @@
 
 				<p:outputLabel value="Jogo" />
 				<p:selectOneMenu label="Jogo" value="#{palpites.palpite.jogo.id}">
-					<f:selectItem itemValue="#{null}" itemLabel="---" />
+					<f:selectItem itemValue="#{null}" itemLabel="" />
 					<f:selectItems value="#{palpites.jogos}" var="j"
-						itemLabel="#{j.clubesCasaId.nome} VS #{j.clubesVisitanteId.nome}"
+						itemLabel="#{j.clubesCasaId.nome} x #{j.clubesVisitanteId.nome}"
 						itemValue="#{j.id}" />
 				</p:selectOneMenu>
 
@@ -35,7 +35,7 @@
 					process="@form" />
 
 			</p:panelGrid>
-			
+
 			<p:separator></p:separator>
 
 			<h3 align="center">Realizar Apostas</h3>
@@ -61,8 +61,8 @@
 				</p:column>
 
 				<p:column headerText="Excluir Apostas">
-					<p:commandLink value="Excluir Esta Aposta" action="#{palpites.remove(p)}"
-						update="@form" />
+					<p:commandLink value="Excluir Esta Aposta"
+						action="#{palpites.remove(p)}" update="@form" />
 				</p:column>
 			</p:dataTable>
 
@@ -71,7 +71,7 @@
 				<p:commandButton value="Gravar todas as apostas"
 					action="#{palpites.gravarPalpites}" update="@form"
 					rendered="#{not empty palpites.palpitesDoUsuario}" />
-			
+
 			</p:panelGrid>
 
 		</h:form>
