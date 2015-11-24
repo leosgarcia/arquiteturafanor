@@ -6,27 +6,43 @@
 	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
 	<ui:define name="content">
 
-		<h:form id="formTelaRealizarApostas">
-			<h2>Rodadas dos Campeonatos</h2>
-			<p:separator />
-			<br />
-		</h:form>
-		<body>
-			<h2 align="center">Rodada nº </h2>
-			<h2 align="center">
-				Um site destinado ao esporte que corre na veia da maioria dos
-				brasileiros: O futebol!<br />
-			</h2>
-			<h4 align="center">
-				No nosso site você encontra tudo sobre o Campeonato Brasileiro, e
-				claro, realiza seus palpites em cada rodada. De acordo com os
-				resultados obtidos em seus palpites em cada rodada, você receberá
-				pontos que serão adicionados a sua conta. Você participará de um
-				RANKING com os demais usuários do site. <br /> <br /> Comece agora
-				mesmo a realizar suas apostas. <br /> <br /> Boa Sorte!<br />
-			</h4>
+		<h:form id="formRodadas">
 
-		</body>
+			<p:growl id="msgs" showDetail="true" />
+
+
+
+			<h3 align="center">Rodadas</h3>
+			<p:dataTable id="cars1" var="p" value="#{palpites.palpitesDoUsuario}"
+				rows="10" resizableColumns="true" style="margin-bottom:20px">
+
+				<f:facet name="header">Rodada Número: 38</f:facet>
+
+				<p:column headerText="Equipe Casa">
+					<h4 align="center">#{p.jogo.clubesCasaId.nome}</h4>
+				</p:column>
+
+				<p:column headerText="Versus">
+					<h4 align="center">x</h4>
+				</p:column>
+
+				<p:column headerText="Equipe Visitante">
+					<h4 align="center">#{p.jogo.clubesVisitanteId.nome}</h4>
+				</p:column>
+
+
+			</p:dataTable>
+
+			<p:panelGrid styleClass="panelgrid" columns="2">
+
+				<p:commandButton value="Gravar todas as apostas"
+					action="#{palpites.gravarPalpites}" update="@form"
+					rendered="#{not empty palpites.palpitesDoUsuario}" />
+
+			</p:panelGrid>
+
+		</h:form>
+
 	</ui:define>
 
 
