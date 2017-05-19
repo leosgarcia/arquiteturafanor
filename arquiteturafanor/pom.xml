@@ -4,17 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.edu.fanor.progweb.arquitetura</groupId>
 	<artifactId>arquitetura</artifactId>
+	<artifactId>maven-war-plugin</artifactId>
+	<configuration>
+				<webXml>..\readers-web\WebContent\WEB-INF\web.xml</webXml>
+	</configuration>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>arquitetura</name>
 	
-<plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-war-plugin</artifactId>
-	<configuration>
-	<webXml>..\readers-web\WebContent\WEB-INF\web.xml</webXml>
-	</configuration>
-</plugin>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
